@@ -1,0 +1,7 @@
+.navbar {
+    background-color: var(--hover-background-color);
+    padding: 0.8rem;
+}
+.navbar .active {
+    color: var(--active-link-color);
+}

@@ -1,0 +1,17 @@
+.table,
+.table-row-item,
+.table-cell-item {
+  border: none;
+  margin: 0;
+  padding: 0.3rem;
+  border-spacing: 0;
+}
+.table-hover .table-row-item:hover {
+  background-color: var(--hover-background-color);
+  cursor: pointer;
+}
+
+.table .table-actions {
+    display: flex;
+    gap: 5px;
+}
