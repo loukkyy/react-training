@@ -9,6 +9,8 @@ function PostList() {
   return (
     <div style={{display: "flex", flexDirection: "column", height: "100%"}}>
       <h3>List of posts</h3>
+
+      {error}
       {loading ? (
         <span>Loading....</span>
       ) : (
@@ -19,7 +21,6 @@ function PostList() {
                 <Post title={post.title} body={post.body} />
               </li>
             ))}
-          {error}
         </ul>
       )}
     </div>

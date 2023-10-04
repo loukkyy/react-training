@@ -1,25 +1,32 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 
 function useFetch(url, initialOptions = {}) {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(undefined)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(undefined)
   const [options, setOptions] = useState(initialOptions)
-  const effectRan = useRef(false)
+
   useEffect(() => {
     console.log("FETCHING")
     setLoading(true)
+    const controller = new AbortController()
+    const signal = controller.signal
     axios
-      .get(url, options)
+      .get(url, { ...options, signal })
       .then((response) => {
         setData(response.data)
       })
       .catch((error) => {
-        setError(error.message)
+        if (!axios.isCancel(error)) {
+          setError(error.message)
+        }
       })
       .finally(() => setLoading(false))
-    return () => (effectRan.current = true)
+    return () => {
+      // Cancel the request when the component unmounts
+      controller.abort()
+    }
   }, [url, options])
   return { data, loading, error, options, setOptions }
 }
