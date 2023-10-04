@@ -14,22 +14,22 @@ function AppRoutes() {
       <NavBar>
         <ul style={{ listStyle: "none", display: "flex", gap: "10px" }}>
           <li>
-            <NavLink exact activeClassName="active" to="/">
+            <NavLink to="/">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/books">
+            <NavLink to="/books">
               Books
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/posts">
+            <NavLink to="/posts">
               Posts
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/users">
+            <NavLink to="/users">
               Users
             </NavLink>
           </li>
@@ -37,7 +37,7 @@ function AppRoutes() {
             <Link to="/users2">Users2</Link>
           </li> */}
           <li>
-            <NavLink activeClassName="active" to="/about">
+            <NavLink to="/about">
               About
             </NavLink>
           </li>
